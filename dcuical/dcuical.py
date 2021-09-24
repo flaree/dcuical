@@ -34,10 +34,10 @@ class DCUICal(commands.Cog):
         self.bot.loop.create_task(self.session.close())
 
 
-    @commands.command()
+    @commands.command(aliases=["ics"])
     async def ical(self, ctx, course: str, *ignored_modules: str):
         """
-        Return an ICAL file for a DCU course timetable.
+        Return an ICAL/ICS file for a DCU course timetable.
         """
         async with ctx.typing():
             async with self.session.post(f"https://opentimetable.dcu.ie/broker/api/CategoryTypes/241e4d36-60e0-49f8-b27e-99416745d98d/Categories/Filter?pageNumber=1&query={course}", headers=ReqHeaders) as req:
