@@ -60,7 +60,7 @@ class DCUICal(commands.Cog):
                     continue
                 start = datetime.datetime.fromisoformat(event_obj["StartDateTime"])
                 end = datetime.datetime.fromisoformat(event_obj["EndDateTime"])
-                duration = (start - end)
+                duration = (end - start)
                 event.add("summary", f"{event_obj['ExtraProperties'][0]['Value']}")
                 event.add("dtstart", start)
                 event.add("dtend", end)
